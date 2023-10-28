@@ -1,0 +1,26 @@
+import sys
+
+n = int(sys.stdin.readline())
+
+mat = []
+for i in range(n):
+    line = list(map(int, sys.stdin.readline().split()))
+    mat.append(line)
+    
+for k in range(n):
+    rowLine = []
+    colLine = []
+    for i in range(n):
+        if(mat[k][i] == 1):
+            rowLine.append(i)
+    for j in range(n):
+        if(mat[j][k] == 1):
+            colLine.append(j)
+    for i in range(len(rowLine)):
+        for j in range(len(colLine)):
+            mat[colLine[j]][rowLine[i]] = 1
+    
+for i in range(n):
+    for j in range(n):
+        print(mat[i][j], end = " ")
+    print()
